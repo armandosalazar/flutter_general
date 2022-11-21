@@ -34,7 +34,7 @@ class _CountPageState extends State<CountPage> {
           )
         ],
       )),
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
             _count++;
@@ -42,8 +42,47 @@ class _CountPageState extends State<CountPage> {
         },
         tooltip: 'Add',
         child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),*/
+      floatingActionButton: _makeButtons(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+
+  Widget _makeButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        // Genera una pequeña caja, de alguna forma un div
+        const SizedBox(width: 35),
+        FloatingActionButton(
+          onPressed: _add,
+          child: const Icon(Icons.add),
+        ),
+        const SizedBox(width: 5),
+        FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              _count--;
+            });
+          },
+          child: const Icon(Icons.remove),
+        ),
+        // Expande a todo el ancho posible a su child
+        const Expanded(child: SizedBox()),
+        FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              _count = 0;
+            });
+          },
+          child: const Icon(Icons.exposure_zero),
+        )
+      ],
+    );
+  }
+
+  void _add() {
+    setState(() => _count++);
+  }
+
 }
