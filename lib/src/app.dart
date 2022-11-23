@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_general/src/pages/components_page.dart';
 import 'package:flutter_general/src/pages/count_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -9,7 +10,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
-      home: CountPage(),
+      // home: CountPage(),
+      home: ComponentsPage()
     );
   }
 }
