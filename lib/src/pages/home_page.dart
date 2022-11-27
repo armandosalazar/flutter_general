@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'users_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   final textStyle = const TextStyle(fontWeight: FontWeight.bold, fontSize: 22);
@@ -9,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Title"),
+        title: const Text("Home pages"),
         centerTitle: true,
       ),
       body: Center(
@@ -23,7 +25,13 @@ class HomePage extends StatelessWidget {
           const Text(
             '0',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          )
+          ),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const UsersPage()));
+              },
+              child: const Text('Navigate to Users')),
         ],
       )),
       floatingActionButton: FloatingActionButton(
@@ -45,8 +53,13 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.abc), label: 'ABC')
+          BottomNavigationBarItem(icon: Icon(Icons.abc), label: 'ABC'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt),
+            label: 'Users',
+          ),
         ],
+        currentIndex: 2,
       ),
     );
   }
@@ -65,4 +78,8 @@ class Service {
   Future<http.Response> fetchPost() {
     return http.get(url);
   }
+}
+
+void navigateToUsers(BuildContext context) {
+  Navigator.of(context).pushNamed('/users');
 }

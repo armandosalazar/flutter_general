@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CountPage extends StatefulWidget {
-  const CountPage({Key? key}) : super(key: key);
+class CounterPage extends StatefulWidget {
+  const CounterPage({Key? key}) : super(key: key);
 
   @override
-  State<CountPage> createState() => _CountPageState();
+  State<CounterPage> createState() => _CounterPageState();
 }
 
 //  con _ hacemos privada la clase
-class _CountPageState extends State<CountPage> {
+class _CounterPageState extends State<CounterPage> {
   // con _ hacemos las propiedades privadas
   final _textStyle = const TextStyle(fontWeight: FontWeight.bold, fontSize: 22);
   int _count = 0;
@@ -53,12 +53,12 @@ class _CountPageState extends State<CountPage> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         // Genera una pequeña caja, de alguna forma un div
-        const SizedBox(width: 35),
+        const SizedBox(width: 35.0),
         FloatingActionButton(
           onPressed: _add,
           child: const Icon(Icons.add),
         ),
-        const SizedBox(width: 5),
+        const SizedBox(width: 5.0),
         FloatingActionButton(
           onPressed: () {
             setState(() {
@@ -84,5 +84,4 @@ class _CountPageState extends State<CountPage> {
   void _add() {
     setState(() => _count++);
   }
-
 }

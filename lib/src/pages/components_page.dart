@@ -11,16 +11,9 @@ class ComponentsPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          ListTile(
-            title: const Text('List title'),
-            subtitle: const Text('List subtitle'),
-            leading: const Icon(Icons.add),
-            trailing: const Icon(Icons.add),
-            onTap: () {
-              print('Tap');
-            },
+          const Divider(
+            color: Colors.white,
           ),
-          const Divider(),
           ListTile(
             title: const Text('List title'),
             subtitle: const Text('List subtitle'),
@@ -30,6 +23,19 @@ class ComponentsPage extends StatelessWidget {
             },
           ),
           const Divider(),
+          ListTile(
+            title: const Text('List title'),
+            subtitle: const Text('List subtitle'),
+            trailing: const Icon(Icons.arrow_forward),
+            iconColor: Colors.blue,
+            onTap: () {
+              print('Tap');
+            },
+          ),
+          const Divider(),
+          const ListTile(
+            title: Text('Works'),
+          )
         ],
       ),
     );
