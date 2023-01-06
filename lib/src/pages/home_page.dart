@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_general/src/pages/components_page.dart';
 import 'package:flutter_general/src/pages/counter_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
               child: const Text('Navigate to Users')),
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/components');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ComponentsPage()));
               },
               child: const Text('Go to components')),
           ElevatedButton(
