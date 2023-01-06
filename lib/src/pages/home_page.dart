@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_general/src/pages/counter_page.dart';
 import 'package:http/http.dart' as http;
 
 import 'users_page.dart';
@@ -19,19 +20,29 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'Number of Clicks:',
+            'List of buttons',
             style: textStyle,
           ),
-          const Text(
-            '0',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          const SizedBox(height: 15,),
           ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const UsersPage()));
               },
               child: const Text('Navigate to Users')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/components');
+              },
+              child: const Text('Go to components')),
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CounterPage()));
+              },
+              child: const Text('Counter page'))
         ],
       )),
       floatingActionButton: FloatingActionButton(
@@ -82,4 +93,8 @@ class Service {
 
 void navigateToUsers(BuildContext context) {
   Navigator.of(context).pushNamed('/users');
+}
+
+void navigateToComponents(BuildContext context) {
+  Navigator.of(context).pushNamed('/components');
 }

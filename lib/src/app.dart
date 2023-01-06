@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_general/src/pages/components_page.dart';
 import 'package:flutter_general/src/pages/home_page.dart';
 
 // import 'package:flutter_general/src/pages/count_page.dart';
@@ -8,12 +9,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp(
+      title: 'Flutter General',
       initialRoute: '/',
-      routes: <String, Widget Function(BuildContext)>{},
+      routes: {
+        '/': (context) => const HomePage(),
+        '/components ': (context) => const ComponentsPage(),
+      },
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: const HomePage(),
       // home: CountPage(),
       // home: ComponentsPage()
     );
